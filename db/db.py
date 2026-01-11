@@ -12,10 +12,19 @@ def get_connection():
 def sign_up(nome, e_mail, senha, date):
     conn = get_connection()
     pointer = conn.cursor()
-    pointer.execute('INSERT INTO login (nome, email, senha, data_nascimento) values(%s, %s, %s, %s)', (nome, e_mail, senha, date))
-    conn.commit()
-    pointer.close()
-    conn.close()
+    try:
+        pointer.execute('INSERT INTO login (nome, email, senha, data_nascimento) values(%s, %s, %s, %s)', (nome, e_mail, senha, date))
+        conn.commit()
+        return True
+    except mysql.connector.Error as e:
+         # Erro de campo UNIQUE (email duplicado)
+        if e.errno == 1062:
+            return "email_existe"
+        else:
+            return "erro"
+    finally:    
+        pointer.close()
+        conn.close()
 
 def insert_coment(comentarios):
    conn = get_connection()
@@ -46,5 +55,3 @@ def credentials_is_existy(e_mail, password):
     else:
         return False
     
-
-

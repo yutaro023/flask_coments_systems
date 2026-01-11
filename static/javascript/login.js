@@ -1,20 +1,10 @@
 let div = document.getElementById("login-error")
 let error = div.dataset.validacao
-let email = document.getElementById("i-email")
-let password = document.getElementById("i-pass")
-let form = document.getElementsByTagName("form")[0]
 
-console.log(error)
+const navType = performance.getEntriesByType("navigation")[0].type;
 
-form.addEventListener("submit", (event) => {
-    if(password.value !== '' || email.value !== '') {
-        alert("Suas Credenciais estao erradas!")
+console.log(navType)
 
-    }       
-})
-
-
-
-
-
-
+if (error === "True" && navType !== "reload") {
+    alert("suas credenciais estao erradas");
+}

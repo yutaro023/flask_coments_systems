@@ -1,4 +1,6 @@
 let button = document.getElementsByTagName("form")[0]
+let error = document.getElementById("error").dataset.error
+const navType = performance.getEntriesByType("navigation")[0].type;
 
 button.addEventListener("submit", (event) => {
     let dataNascimento = new Date(document.getElementById("data-nascimento").value)
@@ -15,4 +17,8 @@ button.addEventListener("submit", (event) => {
     }
 });
 
+console.log(navType)
 
+if(error === "email_existe" && navType !== "reload") {
+    alert("Esse E-mail já existe")
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/style/style.css">
-    <title>Login</title>
+    <title>sing up</title>
 </head>
 <body>
     <h1>Cadastre-se</h1>
@@ -16,6 +16,7 @@
         <button type="submit" id="butao-enviar">Enviar</button>
     </form>
     <a href="{{url_for('login')}}">Já possui cadastro ?</a>
+    <div id="error" data-error="{{error}}"></div>
     <script src="../static/javascript/script.js"></script>
 </body>
 </html>
