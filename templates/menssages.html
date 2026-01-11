@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menssagens a novos usuários</title>
+   
+</head>
+<body>
+    <h1>Deixe a sua menssagem</h1>
+    <form method="post">
+        <input type="text" name="comentario" id="" placeholder="Digite seu comentario">
+        <button type="submit">Mandar</button>
+    </form>
+    <h2>Comentarios</h2>
+    <ul>
+        {% for c in comentarios %}
+            <li>{{ c[0] }}</li> <!-- cada linha é uma tupla (texto,) -->
+        {% endfor %}
+    </ul>
+</body>
+</html>

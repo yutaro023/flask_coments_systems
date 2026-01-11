@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Cadastre-se</h1>
+    <form action="{{url_for('home')}}" method="post">
+        <input type="text" name="name_user" id="name" placeholder="Seu nome de usuario" required> <br>
+        <input type="email" name="e_mail" id="e-mail" placeholder="seu email" required> <br>
+        <input type="password" name="key_word" id="senha" required> <br>
+        <input type="date" name="birth_date" id="data-nascimento" required> <br>
+        <button type="submit" id="butao-enviar">Enviar</button>
+    </form>
+    <a href="{{url_for('login')}}">Já possui cadastro ?</a>
+    <script src="../static/javascript/script.js"></script>
+</body>
+</html>
